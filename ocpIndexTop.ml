@@ -22,7 +22,8 @@ let () =
   Hashtbl.add
     Toploop.directive_table
     "doc"
-    (Toploop.Directive_string (fun s ->
+    (Toploop.Directive_ident (fun lident ->
+         let s = Longident.flatten lident |> String.concat "." in
          match Lazy.force (LibIndex.get index s).LibIndex.doc with
          | Some doc ->
            print_endline doc
