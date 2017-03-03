@@ -27,4 +27,6 @@ let () =
          | Some doc ->
            print_endline doc
          | None ->
-           Printf.printf "No documentation found for %s\n" s))
+           Printf.printf "No documentation found for %s\n" s
+         | exception Not_found ->
+           print_endline "Unknown element."))
