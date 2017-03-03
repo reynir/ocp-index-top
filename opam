@@ -11,5 +11,6 @@ depends: [
   "ocamlfind" {build}
   "ocamlbuild" {build}
   "topkg" {build}
+  "opam-lib"
   "ocp-index"
 ]
