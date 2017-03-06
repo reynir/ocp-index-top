@@ -1,6 +1,6 @@
 description = "Blah"
 requires = "ocp-index.lib opam-lib.state"
-version = "0.1.0"
+version = "0.2.0"
 archive(byte) = "ocp-index-top.cma"
 archive(byte,toploop) = "ocp-index-top.cma"
 archive(byte,create_toploop) = "ocp-index-top.cma"

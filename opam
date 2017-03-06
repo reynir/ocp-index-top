@@ -1,6 +1,6 @@
 opam-version: "1.2"
 name: ocp-index-top
-version: "0.1.0"
+version: "0.2.0"
 maintainer: "Reynir Björnsson <reynir@reynir.dk>"
 author: "Reynir Björnsson <reynir@reynir.dk>"
 license: "BSD-2-clause"
