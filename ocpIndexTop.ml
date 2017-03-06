@@ -1,12 +1,21 @@
+let cmd_input_line cmd =
+  try
+    let ic = Unix.open_process_in (cmd ^ " 2>/dev/null") in
+    let r = input_line ic in
+    let r =
+      let len = String.length r in
+      if len>0 && r.[len - 1] = '\r' then String.sub r 0 (len-1) else r
+    in
+    match Unix.close_process_in ic with
+    | Unix.WEXITED 0 -> r
+    | _ -> failwith "cmd_input_line"
+  with
+  | End_of_file | Unix.Unix_error _ | Sys_error _ -> failwith "cmd_input_line"
+
 let stdlib_dir = Config.standard_library
 
 let opamlib_dir =
-  let root_dir = (OpamStateConfig.opamroot ()) in
-  let Some opam_config = OpamStateConfig.load root_dir in
-  OpamPath.Switch.Default.lib_dir
-    root_dir
-    (OpamFile.Config.switch opam_config)
-  |> OpamFilename.Dir.to_string
+  cmd_input_line "opam config var lib"
 
 let opamlib_dirs =
   LibIndex.Misc.unique_subdirs [opamlib_dir]
