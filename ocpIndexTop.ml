@@ -15,9 +15,6 @@ let lib_dirs = stdlib_dir :: opamlib_dirs
 
 let index = LibIndex.load lib_dirs
 
-let acme_client_get_crt_doc () =
-  Lazy.force (LibIndex.get index "Acme.Client.get_crt").LibIndex.doc
-
 let () =
   Hashtbl.add
     Toploop.directive_table
