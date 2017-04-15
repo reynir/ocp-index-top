@@ -33,7 +33,7 @@ let mk_resolver find lident =
       None
 
 let resolvers = [
-  mk_resolver (fun lident env -> fst (Env.lookup_type lident env));
+  mk_resolver (fun lident env -> Env.lookup_type lident env);
   mk_resolver (fun lident env -> fst (Env.lookup_value lident env));
   mk_resolver (Env.lookup_module ~load:true);
   mk_resolver (fun lident env -> fst (Env.lookup_modtype lident env));
