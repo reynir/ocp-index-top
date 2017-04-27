@@ -12,5 +12,6 @@ depends: [
   "ocamlfind" {build}
   "ocamlbuild" {build}
   "topkg" {build}
+  "cppo" {build}
   "ocp-index"
 ]
