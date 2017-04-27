@@ -1,1 +1,1 @@
-true: package(compiler-libs.common,compiler-libs.toplevel,ocp-index.lib)
+true: package(compiler-libs.common,compiler-libs.toplevel,ocp-index.lib), cppo_V_OCAML

@@ -33,7 +33,11 @@ let mk_resolver find lident =
       None
 
 let resolvers = [
+#if OCAML_VERSION < (4, 4, 0)
   mk_resolver (fun lident env -> fst (Env.lookup_type lident env));
+#else
+  mk_resolver (fun lident env -> Env.lookup_type lident env);
+#endif
   mk_resolver (fun lident env -> fst (Env.lookup_value lident env));
   mk_resolver (Env.lookup_module ~load:true);
   mk_resolver (fun lident env -> fst (Env.lookup_modtype lident env));
