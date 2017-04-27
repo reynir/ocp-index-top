@@ -1,6 +1,6 @@
 opam-version: "1.2"
 name: "ocp-index-top"
-version: "0.3.0"
+version: "0.4.0"
 maintainer: "Reynir Björnsson <reynir@reynir.dk>"
 author: "Reynir Björnsson <reynir@reynir.dk>"
 dev-repo: "https://github.com/reynir/ocp-index-top.git"
