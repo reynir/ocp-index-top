@@ -1,6 +1,6 @@
 description = "Blah"
 requires = "unix ocp-index.lib"
-version = "0.4.0"
+version = "0.4.1"
 archive(byte) = "ocp-index-top.cma"
 archive(byte,toploop) = "ocp-index-top.cma"
 archive(byte,create_toploop) = "ocp-index-top.cma"
