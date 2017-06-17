@@ -4,7 +4,7 @@ version: "0.4.1"
 maintainer: "Reynir Björnsson <reynir@reynir.dk>"
 author: "Reynir Björnsson <reynir@reynir.dk>"
 dev-repo: "https://github.com/reynir/ocp-index-top.git"
-homepage: "https://gihtub.com/reynir/ocp-index-top/"
+homepage: "https://github.com/reynir/ocp-index-top/"
 bug-reports:  "https://github.com/reynir/ocp-index-top/issues"
 license: "BSD-2-clause"
 build: [
