@@ -6,6 +6,7 @@ homepage: "https://github.com/reynir/ocp-index-top/"
 bug-reports:  "https://github.com/reynir/ocp-index-top/issues"
 doc: "https://reynir.github.io/ocp-index-top/"
 license: "BSD-2-clause"
+available: [ ocaml-version > "4.01.0" ]
 build: [
   "ocaml" "pkg/pkg.ml" "build" "--pinned" "%{pinned}%"
 ]
