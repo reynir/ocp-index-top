@@ -95,37 +95,15 @@ let () =
     (mk_directive (resolve_all resolvers))
 
 let () =
-  Hashtbl.add
-    Toploop.directive_table
-    "doc_type"
-    (mk_directive (resolve_all [resolve_type]))
-
-let () =
-  Hashtbl.add
-    Toploop.directive_table
-    "doc_val"
-    (mk_directive (resolve_all [resolve_value]))
-
-let () =
-  Hashtbl.add
-    Toploop.directive_table
-    "doc_module"
-    (mk_directive (resolve_all [resolve_module]))
-
-let () =
-  Hashtbl.add
-    Toploop.directive_table
-    "doc_module_type"
-    (mk_directive (resolve_all [resolve_modtype]))
-
-let () =
-  Hashtbl.add
-    Toploop.directive_table
-    "doc_class"
-    (mk_directive (resolve_all [resolve_class]))
-
-let () =
-  Hashtbl.add
-    Toploop.directive_table
-    "doc_class_type"
-    (mk_directive (resolve_all [resolve_cltype]))
+  let directives = [
+    "doc_type", (mk_directive (resolve_all [resolve_type]));
+    "doc_val", (mk_directive (resolve_all [resolve_value]));
+    "doc_module", (mk_directive (resolve_all [resolve_module]));
+    "doc_module_type", (mk_directive (resolve_all [resolve_modtype]));
+    "doc_class", (mk_directive (resolve_all [resolve_class]));
+    "doc_class_type", (mk_directive (resolve_all [resolve_cltype]));
+  ] in
+  List.iter (fun (dir_str, dir_fun) ->
+      Hashtbl.add Toploop.directive_table
+        dir_str dir_fun)
+    directives
