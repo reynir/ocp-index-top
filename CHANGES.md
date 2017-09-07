@@ -1,3 +1,9 @@
+v0.5.0
+------
+
+- Use print functions provided by ocp-index.lib / LibIndex. This means that the
+  type is printed as well.
+
 v0.4.3
 ------
 
