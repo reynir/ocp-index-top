@@ -17,12 +17,13 @@ let stdlib_dir = Config.standard_library
 let opamlib_dir =
   cmd_input_line "opam config var lib"
 
-let opamlib_dirs =
-  LibIndex.Misc.unique_subdirs [opamlib_dir]
+let get_index () =
+  let opamlib_dirs =
+    LibIndex.Misc.unique_subdirs [opamlib_dir] in
+  let lib_dirs = stdlib_dir :: opamlib_dirs in
+  LibIndex.load lib_dirs
 
-let lib_dirs = stdlib_dir :: opamlib_dirs
-
-let index = LibIndex.load lib_dirs
+let index = Lazy.from_fun get_index
 
 let mk_resolver find lident =
   let env = !Toploop.toplevel_env in
@@ -80,7 +81,7 @@ let mk_directive resolver =
   Toploop.Directive_ident (fun lident ->
       let s = resolver lident in
       try
-        LibIndex.get index s
+        LibIndex.get (Lazy.force index) s
         |> LibIndex.Print.info
         |> print_endline
       with Not_found ->
