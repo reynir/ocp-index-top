@@ -79,14 +79,12 @@ let resolve_all : (Longident.t -> string option) list -> Longident.t -> string =
 let mk_directive resolver =
   Toploop.Directive_ident (fun lident ->
       let s = resolver lident in
-      match Lazy.force (LibIndex.get index s).LibIndex.doc with
-      | Some doc ->
-        print_endline doc
-      | None ->
-        Printf.printf "No documentation found for %s\n" s
-      | exception Not_found ->
+      try
+        LibIndex.get index s
+        |> LibIndex.Print.info
+        |> print_endline
+      with Not_found ->
         print_endline "Unknown element.")
-
 
 let () =
   Hashtbl.add
