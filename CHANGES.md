@@ -1,3 +1,8 @@
+v0.4.3
+------
+
+- Depend on cppo\_ocamlbuild. See issue #12.
+
 v0.4.2
 ------
 
