@@ -18,3 +18,4 @@ depends: [
   "cppo_ocamlbuild" {build}
   "ocp-index"
 ]
+x-maintenance-intent: [ "(none)" ]
